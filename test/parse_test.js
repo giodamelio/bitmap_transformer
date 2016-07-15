@@ -42,4 +42,13 @@ describe('Bitmap parsing', function() {
       done();
     });
   });
+
+  it('parse bits per pixel', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(image.bitsPerPixel).to.equal(24);
+      done();
+    });
+  });
 });
