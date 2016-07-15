@@ -12,16 +12,16 @@ const baseLinterOptions = {
     quotes: [2, 'single'],
     'linebreak-style': [2, 'unix'],
     semi: [2, 'always'],
-    'no-undef': 2,
+    'no-undef': 2
   },
   envs: ['node', 'es6'],
   parserOptions: {
     ecmaVersion: 6,
     ecmaFeatures: {
-      impliedStrict: true,
+      impliedStrict: true
     }
   },
-  extends: 'eslint:recommended',
+  extends: 'eslint:recommended'
 };
 
 // Linter tasks -------------------------------------------
@@ -35,7 +35,7 @@ gulp.task('lint:src', function() {
 gulp.task('lint:test', function() {
   return gulp.src(testFiles)
     .pipe(eslint(Object.assign(baseLinterOptions, {
-      envs: ['node', 'es6', 'mocha'],
+      envs: ['node', 'es6', 'mocha']
     })))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -59,7 +59,7 @@ gulp.task('lint:watch', function() {
 gulp.task('test', function() {
   return gulp.src(testFiles, { read: false })
     .pipe(mocha({
-      reporter: 'spec',
+      reporter: 'spec'
     }));
 });
 
