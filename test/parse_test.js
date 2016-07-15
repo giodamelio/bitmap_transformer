@@ -21,5 +21,23 @@ describe('Bitmap parsing', function() {
       expect(image).to.equal(undefined);
       done();
     });
+  })
+
+  it('parse image size', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(image.fileSize).to.equal(30054);
+      done();
+    });
+  });
+
+  it('parse pixel offset', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(image.pixelOffset).to.equal(54);
+      done();
+    });
   });
 });
