@@ -2,8 +2,8 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
-const SRC_FILES = 'lib/**/*.js';
-const TEST_FILES = 'test/**/*.js';
+const srcFiles = 'lib/**/*.js';
+const testFiles = 'test/**/*.js';
 
 const baseLinterOptions = {
   rules: {
@@ -26,14 +26,14 @@ const baseLinterOptions = {
 
 // Linter tasks -------------------------------------------
 gulp.task('lint:src', function() {
-  return gulp.src(SRC_FILES)
+  return gulp.src(srcFiles)
     .pipe(eslint(baseLinterOptions))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
 gulp.task('lint:test', function() {
-  return gulp.src(TEST_FILES)
+  return gulp.src(testFiles)
     .pipe(eslint(Object.assign(baseLinterOptions, {
       envs: ['node', 'es6', 'mocha'],
     })))
@@ -44,12 +44,12 @@ gulp.task('lint:test', function() {
 gulp.task('lint', ['lint:src', 'lint:test']);
 
 gulp.task('lint:watch', function() {
-  gulp.watch(SRC_FILES, ['lint:src'])
+  gulp.watch(srcFiles, ['lint:src'])
     .on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 
-  gulp.watch(TEST_FILES, ['lint:test'])
+  gulp.watch(testFiles, ['lint:test'])
     .on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
@@ -57,14 +57,14 @@ gulp.task('lint:watch', function() {
 
 // Test tasks ---------------------------------------------
 gulp.task('test', function() {
-  return gulp.src(TEST_FILES, { read: false })
+  return gulp.src(testFiles, { read: false })
     .pipe(mocha({
       reporter: 'spec',
     }));
 });
 
 gulp.task('test:watch', function() {
-  gulp.watch([SRC_FILES, TEST_FILES], ['test'])
+  gulp.watch([srcFiles, testFiles], ['test'])
     .on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
