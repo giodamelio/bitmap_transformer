@@ -1,0 +1,20 @@
+{
+  "name": "bitmap_transformer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giodamelio/bitmap_transformer.git"
+  },
+  "author": "Gio d'Amelio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giodamelio/bitmap_transformer/issues"
+  },
+  "homepage": "https://github.com/giodamelio/bitmap_transformer#readme"
+}
