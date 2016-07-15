@@ -51,4 +51,13 @@ describe('Bitmap parsing', function() {
       done();
     });
   });
+
+  it('parse pixel data size', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(image.totalPixelSize).to.equal(30000);
+      done();
+    });
+  });
 });
