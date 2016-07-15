@@ -1,11 +1,24 @@
+const fs = require('fs');
+const buffer = require('buffer');
+
 const expect = require('chai').expect;
 
 const parse = require('../lib/parse');
 
 describe('Bitmap parsing', function() {
-  it('test parsing', function(done) {
-    parse('image.bmp', function(image) {
-      expect(image).to.equal('Parsed image');
+  // it('test parsing', function(done) {
+  //   const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+  //   parse(image, function(image) {
+  //     expect(image).to.equal('Parsed image');
+  //     done();
+  //   });
+  // });
+
+  it('testing if BM exits at beggining of file', function(done) {
+    const image = new buffer.Buffer('I AM NOT AN IMAGE');
+    parse(image, function(err, image) {
+      expect(err).to.equal('Not a valid bitmap image');
+      expect(image).to.equal(undefined);
       done();
     });
   });
