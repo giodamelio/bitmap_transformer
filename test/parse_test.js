@@ -69,4 +69,13 @@ describe('Bitmap parsing', function() {
       done();
     });
   });
+
+  it('include original image buffer', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(buffer.Buffer.isBuffer(image.originalImageBuffer)).to.equal(true);
+      done();
+    });
+  });
 });
