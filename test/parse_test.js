@@ -60,4 +60,13 @@ describe('Bitmap parsing', function() {
       done();
     });
   });
+
+  it('parse number of colors in palette', function(done) {
+    const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal(null);
+      expect(image.colorsInPalette).to.equal(0);
+      done();
+    });
+  });
 });
