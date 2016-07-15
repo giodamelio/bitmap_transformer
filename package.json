@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/giodamelio/bitmap_transformer/issues"
   },
-  "homepage": "https://github.com/giodamelio/bitmap_transformer#readme"
+  "homepage": "https://github.com/giodamelio/bitmap_transformer#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^2.2.0"
+  }
 }
