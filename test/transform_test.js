@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+const fs = require('fs');
 
 const parse = require('../lib/parse');
 const transform = require('../lib/transform');
