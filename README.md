@@ -15,7 +15,14 @@ This is a basic bitmap parser and transformer.
     gulp watch
 
     # Run command line
-    # ./bin/bitmap_transform <transform type> <input bitmap> <output bitmap>
+    # ./bin/bitmap_transform <transform type> <input bitmap> <output bitmap>  
+    # Transformation types  
+    #    black
+    #    mirror
+    #    grey-scale
+    #    red-scale
+    #    invert
+
     # Example
     ./bin/bitmap_transform black ./img/palette-bitmap.bmp ./img/transformed-img/black.bmp
 
