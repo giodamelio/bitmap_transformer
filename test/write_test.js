@@ -11,7 +11,7 @@ describe('Writing new bitmap', function() {
     const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
     parse(imageBuffer, function(err, image) {
       expect(err).to.equal(null);
-      transform(image, function(err, newImage) {
+      transform(image, 'black', function(err, newImage) {
         write(newImage, './img/transformed-img/black.bmp', function(err){
           expect(err).to.equal(null);
           done();

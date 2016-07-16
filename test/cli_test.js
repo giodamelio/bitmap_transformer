@@ -8,6 +8,7 @@ describe('Command line', function() {
     const args = [
       null,
       null,
+      'black',
       './img/non-palette-bitmap.bmp',
       './img/transformed-img/output.bmp'
     ];
