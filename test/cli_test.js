@@ -1,6 +1,6 @@
-'let strict';
-const expect = require('chai').expect;
+'use strict';
 
+const expect = require('chai').expect;
 const cli = require('../bin/_bitmap_transform');
 
 describe('Command line', function() {
@@ -13,13 +13,12 @@ describe('Command line', function() {
     ];
     let called = false;
     const testStream = {
-      write: function(data) {
+      write: function() {
         called = true;
       }
     };
 
     cli(testStream, args, function(err) {
-      debugger;
       expect(err).to.equal(null);
       expect(called).to.equal(true);
       done();

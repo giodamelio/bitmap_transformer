@@ -1,8 +1,8 @@
+'use strict';
+
 const fs = require('fs');
 const buffer = require('buffer');
-
 const expect = require('chai').expect;
-
 const parse = require('../lib/parse');
 
 describe('Bitmap parsing', function() {
@@ -13,7 +13,7 @@ describe('Bitmap parsing', function() {
       expect(image).to.equal(undefined);
       done();
     });
-  })
+  });
 
   it('parse image size', function(done) {
     const image = fs.readFileSync('./img/non-palette-bitmap.bmp');
