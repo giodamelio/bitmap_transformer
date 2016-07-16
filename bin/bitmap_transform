@@ -13,8 +13,8 @@ const cli = function(writeStream, callback) {
 
   const args = process.argv.slice(2);
 
-  if (args.length < 1) {
-    exitWithError('You must pass in a bitmap image');
+  if (args.length < 2) {
+    exitWithError('You must pass in a input bitmap image and an output location for transformed bitmap');
   }
 
   fs.readFile(args[0], function(err, imageBuffer) {
@@ -34,7 +34,7 @@ const cli = function(writeStream, callback) {
         }
         writeStream.write('Transforming...\n');
 
-        write(newImage, './img/transformed-img/black.bmp', function(err) {
+        write(newImage, args[1], function(err) {
           if (err) {
             exitWithError('Error writing transformed image');
           }
