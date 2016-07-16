@@ -1,4 +1,5 @@
 # Bitmap transformer
+[![Build Status](https://travis-ci.org/giodamelio/bitmap_transformer.svg?branch=master)](https://travis-ci.org/giodamelio/bitmap_transformer)
 
 This is a basic bitmap parser and transformer.
 
