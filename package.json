@@ -1,9 +1,8 @@
 {
   "name": "bitmap_transformer",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
-  "private": true,
   "scripts": {
     "test": "gulp test"
   },
@@ -11,7 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/giodamelio/bitmap_transformer.git"
   },
+  "bin": {
+    "bitmap_transform": "./bin/bitmap_transform"
+  },
   "author": "Gio d'Amelio",
+  "contributors": [
+    {
+      "name": "Aliza Pilisuk"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/giodamelio/bitmap_transformer/issues"
