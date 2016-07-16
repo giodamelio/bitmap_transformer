@@ -1,6 +1,6 @@
 {
   "name": "bitmap_transformer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/giodamelio/bitmap_transformer.git"
   },
   "bin": {
-    "bitmap_transform": "./bin/bitmap_transform"
+    "bitmap_transformer": "./bin/bitmap_transform"
   },
   "author": "Gio d'Amelio",
   "contributors": [
