@@ -1,49 +1,9 @@
 #!/usr/bin/env node
-const fs = require('fs');
+const cli = require('./_bitmap_transform');
 
-const parse = require('../lib/parse');
-const transform = require('../lib/transform');
-const write = require('../lib/write');
-
-const cli = function(writeStream, callback) {
-  function exitWithError(errorMessage) {
-    writeStream.write(errorMessage + '\n');
+cli(process.stdout, process.argv, function(err) {
+  if (err) {
+    console.log(err);
     process.exit(1);
-  };
-
-  const args = process.argv.slice(2);
-
-  if (args.length < 2) {
-    exitWithError('You must pass in a input bitmap image and an output location for transformed bitmap');
   }
-
-  fs.readFile(args[0], function(err, imageBuffer) {
-    if (err) {
-      exitWithError('Image does not exist');
-    }
-
-    parse(imageBuffer, function(err, image) {
-      if (err) {
-        exitWithError('Unable to parse bitmap');
-      }
-      writeStream.write('Parsing bitmap...\n');
-
-      transform(image, function(err, newImage) {
-        if (err) {
-          exitWithError('Error transforming image');
-        }
-        writeStream.write('Transforming...\n');
-
-        write(newImage, args[1], function(err) {
-          if (err) {
-            exitWithError('Error writing transformed image');
-          }
-          writeStream.write('Image transformed...\n');
-        });
-      });
-    });
-  });
-};
-
-cli(process.stdout);
-module.exports = cli;
+});
