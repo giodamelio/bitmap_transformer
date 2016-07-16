@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const cli = function(writeStream) {
+  writeStream.write('HAHA');
+};
+
+cli(process.stdout);
+module.exports = cli;
