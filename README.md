@@ -1,6 +1,6 @@
 # Bitmap transformer
 [![Build Status](https://travis-ci.org/giodamelio/bitmap_transformer.svg?branch=master)](https://travis-ci.org/giodamelio/bitmap_transformer)
-[![codecov](https://codecov.io/gh/giodamelio/bitmap_transformer/branch/master/graph/badge.svg)](https://codecov.io/gh/giodamelio/bitmap_transformer)
+[![codecov](https://codecov.io/gh/giodamelio/bitmap_transformer/branch/master/graph/badge.svg)](https://codecov.io/gh/giodamelio/bitmap_transformer) [![npm version](https://img.shields.io/npm/v/bitmap_transformer.svg)](https://www.npmjs.com/package/bitmap_transformer) ![npm downloads](https://img.shields.io/npm/dt/bitmap_transformer.svg)
 
 This is a basic bitmap parser and transformer.
 
