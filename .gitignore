@@ -1,4 +1,3 @@
 node_modules/
 img/transformed-img/*.bmp
-*.bmp
 .DS_Store
