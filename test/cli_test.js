@@ -3,8 +3,8 @@
 const expect = require('chai').expect;
 const cli = require('../bin/_bitmap_transform');
 
-describe('Command line', function() {
-  it('basic transform', function(done) {
+describe('Command line', () => {
+  it('basic transform', (done) => {
     const args = [
       null,
       null,
@@ -19,14 +19,14 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal(null);
       expect(called).to.equal(true);
       done();
     });
   });
 
-  it('invalid arguments', function(done) {
+  it('invalid arguments', (done) => {
     const args = [
       null,
       null
@@ -38,14 +38,14 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal('You must pass in a transformation type, input bitmap and output path');
       expect(called).to.equal(false);
       done();
     });
   });
 
-  it('invalid input image path', function(done) {
+  it('invalid input image path', (done) => {
     const args = [
       null,
       null,
@@ -60,14 +60,14 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal('Image does not exist');
       expect(called).to.equal(false);
       done();
     });
   });
 
-  it('parsing error', function(done) {
+  it('parsing error', (done) => {
     const args = [
       null,
       null,
@@ -82,14 +82,14 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal('Unable to parse bitmap');
       expect(called).to.equal(false);
       done();
     });
   });
 
-  it('transforming error', function(done) {
+  it('transforming error', (done) => {
     const args = [
       null,
       null,
@@ -104,14 +104,14 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal('Error transforming image');
       expect(called).to.equal(true);
       done();
     });
   });
 
-  it('writing error', function(done) {
+  it('writing error', (done) => {
     const args = [
       null,
       null,
@@ -126,7 +126,7 @@ describe('Command line', function() {
       }
     };
 
-    cli(testStream, args, function(err) {
+    cli(testStream, args, (err) => {
       expect(err).to.equal('Error writing transformed image');
       expect(called).to.equal(true);
       done();

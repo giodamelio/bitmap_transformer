@@ -7,92 +7,92 @@ const expect = require('chai').expect;
 const parse = require('../lib/parse');
 const transform = require('../lib/transform');
 
-describe('Bitmap transform', function() {
-  it('error on no transform name', function(done) {
+describe('Bitmap transform', () => {
+  it('error on no transform name', (done) => {
     const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
-    parse(imageBuffer, function(err, image) {
+    parse(imageBuffer, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, null, function(err, newImage) {
+      transform(image, null, (err, newImage) => {
         expect(err).to.equal('No transformName passed');
         done();
       });
     });
   });
 
-  it('black transform', function(done) {
+  it('black transform', (done) => {
     const inputImage = fs.readFileSync(
       path.join(__dirname, 'images/test.bmp')
     );
     const expectedImage = fs.readFileSync(
       path.join(__dirname, 'images/transform_outputs/black.bmp')
     );
-    parse(inputImage, function(err, image) {
+    parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'black', function(err, newImage) {
+      transform(image, 'black', (err, newImage) => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
     });
   });
 
-  it('grey-scale transform', function(done) {
+  it('grey-scale transform', (done) => {
     const inputImage = fs.readFileSync(
       path.join(__dirname, 'images/test.bmp')
     );
     const expectedImage = fs.readFileSync(
       path.join(__dirname, 'images/transform_outputs/grey-scale.bmp')
     );
-    parse(inputImage, function(err, image) {
+    parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'grey-scale', function(err, newImage) {
+      transform(image, 'grey-scale', (err, newImage) => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
     });
   });
 
-  it('invert transform', function(done) {
+  it('invert transform', (done) => {
     const inputImage = fs.readFileSync(
       path.join(__dirname, 'images/test.bmp')
     );
     const expectedImage = fs.readFileSync(
       path.join(__dirname, 'images/transform_outputs/invert.bmp')
     );
-    parse(inputImage, function(err, image) {
+    parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'invert', function(err, newImage) {
+      transform(image, 'invert', (err, newImage) => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
     });
   });
 
-  it('mirror transform', function(done) {
+  it('mirror transform', (done) => {
     const inputImage = fs.readFileSync(
       path.join(__dirname, 'images/test.bmp')
     );
     const expectedImage = fs.readFileSync(
       path.join(__dirname, 'images/transform_outputs/mirror.bmp')
     );
-    parse(inputImage, function(err, image) {
+    parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'mirror', function(err, newImage) {
+      transform(image, 'mirror', (err, newImage) => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
     });
   });
 
-  it('red-scale transform', function(done) {
+  it('red-scale transform', (done) => {
     const inputImage = fs.readFileSync(
       path.join(__dirname, 'images/test.bmp')
     );
     const expectedImage = fs.readFileSync(
       path.join(__dirname, 'images/transform_outputs/red-scale.bmp')
     );
-    parse(inputImage, function(err, image) {
+    parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'red-scale', function(err, newImage) {
+      transform(image, 'red-scale', (err, newImage) => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
