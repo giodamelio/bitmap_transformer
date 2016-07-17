@@ -78,4 +78,12 @@ describe('Bitmap parsing', function() {
       done();
     });
   });
+
+  it('error when parsing bitmaps with palettes', function(done) {
+    const image = fs.readFileSync('./img/palette-bitmap.bmp');
+    parse(image, function(err, image) {
+      expect(err).to.equal('Cannot parse bitmaps with color palettes');
+      done();
+    });
+  });
 });

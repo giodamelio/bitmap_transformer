@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
-const srcFiles = 'lib/**/*.js';
+const srcFiles = ['lib/**/*.js', 'bin/*'];
 const testFiles = 'test/**/*.js';
 
 const baseLinterOptions = {
@@ -63,7 +63,7 @@ gulp.task('test', function() {
     }));
 });
 
-gulp.task('test:watch', function() {
+gulp.task('test:watch', ['test'], function() {
   gulp.watch([srcFiles, testFiles], ['test'])
     .on('change', function(event) {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');

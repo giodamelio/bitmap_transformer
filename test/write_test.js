@@ -19,4 +19,17 @@ describe('Writing new bitmap', function() {
       });
     });
   });
+
+  it('invalid image name', function(done) {
+    const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
+    parse(imageBuffer, function(err, image) {
+      expect(err).to.equal(null);
+      transform(image, 'black', function(err, newImage) {
+        write(newImage, '', function(err){
+          expect(err).to.equal('Error writing image');
+          done();
+        });
+      });
+    });
+  });
 });
