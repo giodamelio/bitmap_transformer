@@ -25,7 +25,7 @@ describe('Writing new bitmap', () => {
     parse(imageBuffer, (err, image) => {
       expect(err).to.equal(null);
       transform(image, 'black', (err, newImage) => {
-        write(newImage, '', (err) =>{
+        write(newImage, '', (err) => {
           expect(err).to.equal('Error writing image');
           done();
         });

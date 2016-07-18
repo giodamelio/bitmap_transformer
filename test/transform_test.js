@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const buffer = require('buffer');
 const path = require('path');
 const expect = require('chai').expect;
 const parse = require('../lib/parse');
@@ -12,7 +11,7 @@ describe('Bitmap transform', () => {
     const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
     parse(imageBuffer, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, null, (err, newImage) => {
+      transform(image, null, (err) => {
         expect(err).to.equal('No transformName passed');
         done();
       });
@@ -28,7 +27,7 @@ describe('Bitmap transform', () => {
     );
     parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'black', (err, newImage) => {
+      transform(image, 'black', () => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
@@ -44,7 +43,7 @@ describe('Bitmap transform', () => {
     );
     parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'grey-scale', (err, newImage) => {
+      transform(image, 'grey-scale', () => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
@@ -60,7 +59,7 @@ describe('Bitmap transform', () => {
     );
     parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'invert', (err, newImage) => {
+      transform(image, 'invert', () => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
@@ -76,7 +75,7 @@ describe('Bitmap transform', () => {
     );
     parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'mirror', (err, newImage) => {
+      transform(image, 'mirror', () => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });
@@ -92,7 +91,7 @@ describe('Bitmap transform', () => {
     );
     parse(inputImage, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'red-scale', (err, newImage) => {
+      transform(image, 'red-scale', () => {
         expect(image.originalImageBuffer).to.deep.equal(expectedImage);
         done();
       });

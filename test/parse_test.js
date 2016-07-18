@@ -81,7 +81,7 @@ describe('Bitmap parsing', () => {
 
   it('error when parsing bitmaps with palettes', (done) => {
     const image = fs.readFileSync('./img/palette-bitmap.bmp');
-    parse(image, (err, image) => {
+    parse(image, (err) => {
       expect(err).to.equal('Cannot parse bitmaps with color palettes');
       done();
     });
