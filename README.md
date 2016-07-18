@@ -34,7 +34,7 @@ This is a basic bitmap parser and transformer.
 
   - Create a command line interface
   - Can handle any sized bitmap
-  - Handle both endianess (not quite sure if this works completely, kind of had to test)
+  - Handle both endianess (not quite sure if this works completely, kind of hard to test)
   - Command line can select transform type
   - Make project installable with npm
 
