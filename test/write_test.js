@@ -6,13 +6,13 @@ const write = require('../lib/write');
 const parse = require('../lib/parse');
 const transform = require('../lib/transform');
 
-describe('Writing new bitmap', function() {
-  it('basic write', function(done) {
+describe('Writing new bitmap', () => {
+  it('basic write', (done) => {
     const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
-    parse(imageBuffer, function(err, image) {
+    parse(imageBuffer, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'black', function(err, newImage) {
-        write(newImage, './img/transformed-img/black.bmp', function(err){
+      transform(image, 'black', (err, newImage) => {
+        write(newImage, './img/transformed-img/black.bmp', (err) => {
           expect(err).to.equal(null);
           done();
         });
@@ -20,12 +20,12 @@ describe('Writing new bitmap', function() {
     });
   });
 
-  it('invalid image name', function(done) {
+  it('invalid image name', (done) => {
     const imageBuffer = fs.readFileSync('./img/non-palette-bitmap.bmp');
-    parse(imageBuffer, function(err, image) {
+    parse(imageBuffer, (err, image) => {
       expect(err).to.equal(null);
-      transform(image, 'black', function(err, newImage) {
-        write(newImage, '', function(err){
+      transform(image, 'black', (err, newImage) => {
+        write(newImage, '', (err) => {
           expect(err).to.equal('Error writing image');
           done();
         });

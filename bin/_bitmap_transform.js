@@ -11,24 +11,24 @@ const cli = function(writeStream, args, callback) {
     return callback('You must pass in a transformation type, input bitmap and output path');
   }
 
-  fs.readFile(args[1], function(err, imageBuffer) {
+  fs.readFile(args[1], (err, imageBuffer) => {
     if (err) {
       return callback('Image does not exist');
     }
 
-    parse(imageBuffer, function(err, image) {
+    parse(imageBuffer, (err, image) => {
       if (err) {
         return callback('Unable to parse bitmap');
       }
       writeStream.write('Parsing bitmap...\n');
 
-      transform(image, args[0], function(err, newImage) {
+      transform(image, args[0], (err, newImage) => {
         if (err) {
           return callback('Error transforming image');
         }
         writeStream.write('Transforming...\n');
 
-        write(newImage, args[2], function(err) {
+        write(newImage, args[2], (err) => {
           if (err) {
             return callback('Error writing transformed image');
           }

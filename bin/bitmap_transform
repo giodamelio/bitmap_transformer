@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const cli = require('./_bitmap_transform');
 
-cli(process.stdout, process.argv, function(err) {
+cli(process.stdout, process.argv, (err) => {
   if (err) {
     console.log(err);
     process.exit(1);

@@ -25,14 +25,14 @@ const baseLinterOptions = {
 };
 
 // Linter tasks -------------------------------------------
-gulp.task('lint:src', function() {
+gulp.task('lint:src', () => {
   return gulp.src(srcFiles)
     .pipe(eslint(baseLinterOptions))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('lint:test', function() {
+gulp.task('lint:test', () => {
   return gulp.src(testFiles)
     .pipe(eslint(Object.assign(baseLinterOptions, {
       envs: ['node', 'es6', 'mocha']
@@ -43,29 +43,29 @@ gulp.task('lint:test', function() {
 
 gulp.task('lint', ['lint:src', 'lint:test']);
 
-gulp.task('lint:watch', function() {
+gulp.task('lint:watch', () => {
   gulp.watch(srcFiles, ['lint:src'])
-    .on('change', function(event) {
+    .on('change', (event) => {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 
   gulp.watch(testFiles, ['lint:test'])
-    .on('change', function(event) {
+    .on('change', (event) => {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
 
 // Test tasks ---------------------------------------------
-gulp.task('test', function() {
+gulp.task('test', () => {
   return gulp.src(testFiles, { read: false })
     .pipe(mocha({
       reporter: 'spec'
     }));
 });
 
-gulp.task('test:watch', ['test'], function() {
+gulp.task('test:watch', ['test'], () => {
   gulp.watch([srcFiles, testFiles], ['test'])
-    .on('change', function(event) {
+    .on('change', (event) => {
       console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     });
 });
