@@ -23,6 +23,9 @@ This is a basic bitmap parser and transformer.
 
     # Run tests
     gulp test
+    
+    # Run code coverage tests
+    npm run coverage
 
     # Run lint
     gulp lint
