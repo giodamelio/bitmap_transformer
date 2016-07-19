@@ -19,7 +19,7 @@ This is a basic bitmap parser and transformer.
     #    invert
 
     # Example
-    bitmap_transformer black ./img/palette-bitmap.bmp ./img/transformed-img/black.bmp
+    bitmap_transformer black ./img/non-palette-bitmap.bmp ./img/transformed-img/black.bmp
 
     # Run tests
     gulp test
